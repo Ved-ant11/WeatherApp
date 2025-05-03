@@ -9,6 +9,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [changeTemp, setChangeTemp] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -60,7 +61,7 @@ function App() {
       )}
 
       {weatherData && !isLoading && !error && (
-        <WeatherDisplay weatherData={weatherData} />
+        <WeatherDisplay weatherData={weatherData} setChangeTemp={setChangeTemp} changeTemp={changeTemp} />
       )}
     </div>
   );
